@@ -1,0 +1,32 @@
+body {
+    padding: 0 5px;
+    padding-top: 5px !important;
+    overflow: hidden !important;
+    background: #272822 !important;
+}
+
+h3 {
+    margin-top: 0;
+}
+
+textarea {
+    font-size: 11px !important;
+    font-family: "Consolas", "Lucida Console", Monaco, monospace !important;
+    border: none !important;
+    box-shadow: none !important;
+    width: 100% !important;
+}
+
+.nav-tabs>li {
+    float: right !important;
+    font-size: 13px !important;
+}
+
+.ace_editor {
+    height: 200px;
+}
+
+.nav>li>a {
+    padding: 5px 20px !important;
+    border-radius: 0 !important;
+}

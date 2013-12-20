@@ -1,0 +1,16 @@
+{
+  "name": "format-converter",
+  "main": "html/index.html",
+  "window": {
+    "toolbar": false,
+    "width": 1000,
+    "height": 600
+  },
+  "dependencies": {
+    "qs": "*",
+    "xml2json": "*",
+    "xml2js": "*",
+    "nw-gyp": "*",
+    "js-yaml": "*"
+  }
+}
