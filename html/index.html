@@ -9,71 +9,36 @@
   </head>
 
   <body  ng-controller="bodyController">
-    <div class="row">
-        <div class="col-xs-6">
-            <ul class="nav nav-tabs">
-                <li class="active"><a href="#" data-toggle="tab" tabindex="-1">JSON</a></li>
-            </ul>
-            <div class="tab-pane" id="json">
-                <div ui-ace="{
-                    useWrapMode : false,
-                    showGutter: true,
-                    mode: 'json',
-                    theme: 'monokai',
-                    onChange: dirtyJSON,
-                    onLoad: aceLoaded
-                    }" ng-model="dataJSON"> </div>
-            </div>
-        </div>
+  <div class="row">
+      <div class="col-xs-6">
+          <ul class="nav nav-tabs">
+              <li class="active"><a href="#" data-toggle="tab" tabindex="-1">JSON</a></li>
+          </ul>
+          <div class="tab-pane" id="json">
+              <div ui-ace="jsonEditor" ng-model="dataJSON"> </div>
+          </div>
+      </div>
 
-        <div class="col-xs-6">
-            <ul class="nav nav-tabs">
-                <li><a href="#yaml" data-toggle="tab">YAML</a></li>
-                <li><a href="#qs" data-toggle="tab">QueryString</a></li>
-                <li class="active"><a href="#xml" data-toggle="tab">XML</a></li>
-            </ul>
-            <div class="tab-content">
-                <div class="tab-pane active" id="xml">
-                <div ui-ace="{
-                    useWrapMode : false,
-                    showGutter: true,
-                    mode: 'xml',
-                    onChange: dirtyXML,
-                    theme: 'monokai',
-                    onLoad: aceLoaded
-                    }" ng-model="dataXML"> </div>
-                </div>
-                <div class="tab-pane" id="qs">
-                    <div ui-ace="{
-                        useWrapMode : true,
-                        showGutter: true,
-                        mode: '',
-                        theme: 'monokai',
-                        onChange: dirtyQS,
-                        onLoad: aceLoaded
-                        }" ng-model="dataQS"> </div>
-                </div>
-                <div class="tab-pane" id="yaml">
-                    <div ui-ace="{
-                        useWrapMode : true,
-                        showGutter: true,
-                        mode: 'yaml',
-                        theme: 'monokai',
-                        onChange: dirtyYAML,
-                        onLoad: aceLoaded
-                        }" ng-model="dataYAML"> </div>
-                </div>
-                </div>
-            </div>
-        </div>
-    </div>
+      <div class="col-xs-6">
+          <ul class="nav nav-tabs">
+              <li><a href="#yaml" data-toggle="tab">YAML</a></li>
+              <li><a href="#qs" data-toggle="tab">QueryString</a></li>
+              <li class="active"><a href="#xml" data-toggle="tab">XML</a></li>
+          </ul>
+          <div class="tab-content">
+              <div class="tab-pane active" id="xml">  <div ui-ace="xmlEditor" ng-model="dataXML"> </div> </div>
+              <div class="tab-pane"        id="qs">   <div ui-ace="qsEditor" ng-model="dataQS"> </div> </div>
+              <div class="tab-pane"        id="yaml"> <div ui-ace="yamlEditor" ng-model="dataYAML"> </div> </div>
+          </div>
+      </div>
+  </div>
 
-    <script src="../js/jquery.js" charset="utf-8"></script>
-    <script src="../js/bootstrap.min.js" charset="utf-8"></script>
-    <script src="../js/angularjs/angular.js" charset="utf-8"></script>
-    <script type="text/javascript" src="../js/ace_editor/ace-builds/src-min-noconflict/ace.js" charset="utf-8"></script>
-    <script type="text/javascript" src="../js/ace_editor/angular-ui-ace/ui-ace.js" charset="utf-8"></script>
-    <script src="../js/app.js" charset="utf-8"></script>
+  <script src="../js/jquery.js" charset="utf-8"></script>
+  <script src="../js/bootstrap.min.js" charset="utf-8"></script>
+  <script src="../js/angularjs/angular.js" charset="utf-8"></script>
+  <script type="text/javascript" src="../js/ace_editor/ace-builds/src-min-noconflict/ace.js" charset="utf-8"></script>
+  <script type="text/javascript" src="../js/ace_editor/angular-ui-ace/ui-ace.js" charset="utf-8"></script>
+  <script src="../js/app.js" charset="utf-8"></script>
   </body>
 
 </html>

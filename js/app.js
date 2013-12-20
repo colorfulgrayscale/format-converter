@@ -12,17 +12,14 @@ var qs = require('qs'),
 var xmlBuilder = new xml2js.Builder();
 
 FormatConverter.run(function ($rootScope, $location, $log) {
-    $rootScope.location = $location;  // page location
+    console.log("NodeJS Version: " + process.version);
     $(document).ready(function () {
-        console.log("Loaded");
-        console.log(process.version);
-        $(".ace_editor").height($(window).height() - 55);
+        var resizeApp = function () {
+            $(".ace_editor").height($(window).height() - 50);
+        };
+        $(window).on('resize', resizeApp);
+        resizeApp();
     });
-
-    $(window).on('resize', function () {
-        $(".ace_editor").height($(window).height() - 55);
-    });
-
 });
 
 FormatConverter.controller("bodyController", function ($scope, $log, $http, $rootScope) {
@@ -67,7 +64,6 @@ FormatConverter.controller("bodyController", function ($scope, $log, $http, $roo
         }
         return result;
     };
-
 
     $scope.dirtyJSON = function () {
         var jsonObject;
@@ -150,6 +146,59 @@ FormatConverter.controller("bodyController", function ($scope, $log, $http, $roo
         $scope.safeApply();
     };
 
+    $scope.editors = {}; //keep track of all ACE editors instantiated
+
+    $scope.jsonEditor = {
+        useWrapMode : false,
+        showGutter: true,
+        mode: 'json',
+        theme: 'monokai',
+        onChange: $scope.dirtyJSON,
+        onLoad: function (editor) {
+            console.log("ACE JSON Editor Loaded");
+            $scope.editors.json = editor;
+            $scope.aceLoaded(editor);
+        }
+    };
+
+    $scope.xmlEditor = {
+        useWrapMode : false,
+        showGutter: true,
+        mode: 'xml',
+        onChange: $scope.dirtyXML,
+        theme: 'monokai',
+        onLoad: function (editor) {
+            console.log("ACE XML Editor Loaded");
+            $scope.editors.xml = editor;
+            $scope.aceLoaded(editor);
+        }
+    };
+
+    $scope.yamlEditor = {
+        useWrapMode : true,
+        showGutter: true,
+        mode: 'yaml',
+        theme: 'monokai',
+        onChange: $scope.dirtyYAML,
+        onLoad: function (editor) {
+            console.log("ACE YAML Editor Loaded");
+            $scope.editors.yaml = editor;
+            $scope.aceLoaded(editor);
+        }
+    };
+
+    $scope.qsEditor = {
+        useWrapMode : true,
+        showGutter: true,
+        theme: 'monokai',
+        onChange: $scope.dirtyQS,
+        onLoad: function (editor) {
+            console.log("ACE QS Editor Loaded");
+            $scope.editors.qs = editor;
+            $scope.aceLoaded(editor);
+        }
+    };
+
     $scope.aceLoaded = function (editor) {
         editor.setHighlightActiveLine(false);
         editor.setFontSize("10px");
@@ -167,4 +216,15 @@ FormatConverter.controller("bodyController", function ($scope, $log, $http, $roo
         }
     };
 
+    //refresh ace editor content on tab switch
+    $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+        var target = $(e.target).attr("href").substring(1);
+        console.log("Tab switched to: ", target);
+
+        setTimeout(function () {
+            var editor = $scope.editors[target];
+            editor.getSession().setValue(editor.getSession().getValue());
+            editor.resize();
+        }, 50);
+    });
 });

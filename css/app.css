@@ -30,3 +30,7 @@ textarea {
     padding: 5px 20px !important;
     border-radius: 0 !important;
 }
+
+.tab-content {
+    margin-top: 4px;
+}
