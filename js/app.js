@@ -175,7 +175,7 @@ FormatConverter.controller("bodyController", function ($scope, $log, $http, $roo
     };
 
     $scope.yamlEditor = {
-        useWrapMode : true,
+        useWrapMode : false,
         showGutter: true,
         mode: 'yaml',
         theme: 'monokai',
@@ -222,7 +222,8 @@ FormatConverter.controller("bodyController", function ($scope, $log, $http, $roo
         console.log("Tab switched to: ", target);
 
         setTimeout(function () {
-            var editor = $scope.editors[target];
+            //trigger change, to retranslate
+            var editor = $scope.editors.json;
             editor.getSession().setValue(editor.getSession().getValue());
             editor.resize();
         }, 50);
