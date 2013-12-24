@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>node-webkit</string>
+	<string>Format-Converter</string>
 	<key>CFBundleDocumentTypes</key>
 	<array>
 		<dict>
@@ -36,7 +36,7 @@
 		</dict>
 	</array>
 	<key>CFBundleExecutable</key>
-	<string>node-webkit</string>
+	<string>format-converter</string>
 	<key>CFBundleIconFile</key>
 	<string>nw.icns</string>
 	<key>CFBundleIdentifier</key>
@@ -44,13 +44,13 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>node-webkit</string>
+	<string>format-converter</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>30.0.1599.66</string>
+	<string>1.0</string>
 	<key>CFBundleVersion</key>
-	<string>1599.66</string>
+	<string>1.0</string>
 	<key>LSFileQuarantineEnabled</key>
 	<true/>
 	<key>LSMinimumSystemVersion</key>
@@ -76,17 +76,6 @@
 			<string>com.intel.nw.app</string>
 			<key>UTTypeReferenceURL</key>
 			<string>https://github.com/rogerwang/node-webkit/wiki/How-to-package-and-distribute-your-apps</string>
-			<key>UTTypeTagSpecification</key>
-			<dict>
-				<key>com.apple.ostype</key>
-				<string>node-webkit</string>
-				<key>public.filename-extension</key>
-				<array>
-					<string>nw</string>
-				</array>
-				<key>public.mime-type</key>
-				<string>application/x-node-webkit-app</string>
-			</dict>
 		</dict>
 	</array>
 </dict>
