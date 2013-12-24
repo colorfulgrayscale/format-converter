@@ -1,5 +1,8 @@
 #!/bin/bash
 
-rm format-converter.nw
 
-zip -r9 format-converter.nw * && open format-converter.nw
+FILE_LOCATION="./bin/Format-Converter.app/Contents/Resources/app.nw"
+
+rm -rf  $FILE_LOCATION
+
+zip -r9 $FILE_LOCATION * --exclude=*.app* && open ./bin/Format-Converter.app
